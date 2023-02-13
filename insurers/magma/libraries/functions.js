@@ -3,9 +3,9 @@ import extractPDF from './getPdfText.cjs';
 import { google } from 'googleapis';
 import dayjs from 'dayjs';
 import fs from 'fs';
-import discounts from '../../insurers/magma/assets/discounts.js';
+import discounts from '../assets/discounts.js';
 import path from 'path';
-import rtoList from '../../insurers/magma/assets/rto_names_list.js';
+import rtoList from '../assets/rto_names_list.js';
 // import {
 //   addCommentToTask,
 //   updateTaskDescription,

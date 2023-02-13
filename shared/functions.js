@@ -71,7 +71,6 @@ const getCredentials = async(insurer, branch) => {
     branch: branch,
     insurer : insurer
   });
-  
   const data = await fetch(getCredsUrl, {
     method: 'POST',
     headers: {
@@ -79,7 +78,7 @@ const getCredentials = async(insurer, branch) => {
     },
     body: jsonBody
   });
-
+  console.log(data);
   const creds = await data.json();
 
   try {
