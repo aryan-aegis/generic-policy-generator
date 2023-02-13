@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "puppeteer-core": "^19.6.3"
+  },
+  "devDependencies": {
+    "@sparticuz/chromium": "^110.0.0"
+  }
+}

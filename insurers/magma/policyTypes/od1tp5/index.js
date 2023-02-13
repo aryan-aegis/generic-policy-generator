@@ -42,9 +42,11 @@ const od1tp5 = async (request) => {
 
   // Initiate puppeteer
   const browser = await puppeteer.launch({
-    executablePath: chromePath,
-    headless: false,
-    // devtools: true,
+    args: chromium.args,
+    defaultViewport: chromium.defaultViewport,
+    executablePath: 'C:/Users/aggar/OneDrive/Desktop/chrome-win/chrome-win/chrome',
+    headless: chromium.headless,
+    ignoreHTTPSErrors: true,
   });
   const [page] = await browser.pages();
 

@@ -6,11 +6,11 @@ import fs from 'fs';
 import discounts from '../../insurers/magma/assets/discounts.js';
 import path from 'path';
 import rtoList from '../../insurers/magma/assets/rto_names_list.js';
-import {
-  addCommentToTask,
-  updateTaskDescription,
-  updateTaskStatus
-} from '../../../shared/clickUp.js';
+// import {
+//   addCommentToTask,
+//   updateTaskDescription,
+//   updateTaskStatus
+// } from '../../../shared/clickUp.js';
 import {
   checkFileExists,
   domClickElement,
@@ -418,7 +418,7 @@ const checkIdvVariation = async (page, selectors, value, taskId, pendingXHR) => 
   const lowerIdvValue = await getElementValue(page, selectors.lowerIdvValue, true);
   if (value > higherIdvValue || value < lowerIdvValue) {
     console.log('IDV Variation');
-    await updateTaskStatus(taskId, 'IDV ERROR');
+    // await updateTaskStatus(taskId, 'IDV ERROR');
     throw new Error(TOO_MUCH_IDV_VARIATION);
   }
 };
@@ -871,12 +871,12 @@ const setNewVehicleCalculationsAndUpdateClickUpTask = async (page, request, task
   };
 
   // Update clickup data & status
-  await updateTaskDescription(taskId, request);
+  // await updateTaskDescription(taskId, request);
 
   // Add run script comment
   const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSdQ9_fiAFbBvkJCrEQNFEnTkq0O5nDbAz8alJMYs3UQwOOMNw/viewform?usp=pp_url&entry.300425011=${taskId}&entry.626719933=${request.vehicleDetails.chassisNumber}`;
   const formLinkComment = `Please Upload Policy PDF to this Form : ${formUrl}`;
-  await addCommentToTask(taskId, formLinkComment);
+  // await addCommentToTask(taskId, formLinkComment);
 
   // Return updated request
   return request;
