@@ -107,7 +107,6 @@ const setCustomerDetails = async (page, request, customerDetails, insuranceDetai
   let ckycVerified;
   if (customerDetails.customerType === 'Individual') {
 
-    downloadKycDocuments(request);
     const salutation = customerDetails.salutation.split('.')[0];
     const dob = dayjs(customerDetails.dob).format('DD/MM/YYYY');
     const aadhaarLastFour = (customerDetails.aadhaar).substring(((customerDetails.aadhaar).length - 4), (customerDetails.aadhaar).length);

@@ -78,9 +78,8 @@ const getCredentials = async(insurer, branch) => {
     },
     body: jsonBody
   });
-  console.log(data);
   const creds = await data.json();
-
+  console.log(creds);
   try {
     // Return creds
     return creds;
