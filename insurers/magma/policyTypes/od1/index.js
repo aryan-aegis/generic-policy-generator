@@ -9,7 +9,9 @@ import {
 } from '../../../../shared/functions.js';
 
 import {
+  deleteKycDocuments,
   deleteOldPolicyPdf,
+  downloadKycDocuments,
   loginMagma,
   paymentAndDownloadPdf,
   setAddOnPlansAndCalculatePremium,
@@ -59,11 +61,17 @@ const od1 = async (request) => {
   // Remove wait timeout limit
   page.setDefaultTimeout(0);
 
+  // Delete previous downloaded kyc documents
+  deleteKycDocuments();
+
   // Login into magma portal
   await loginMagma(page, insuranceDetails.insurer.branch, pendingXHR);
-
+  
+  // Download kyc documents
+  const kycDocumentsFileNames = downloadKycDocuments(request);
+  
   // Emter customer details
-  await setCustomerDetails(page, customerDetails, insuranceDetails, pendingXHR);
+  await setCustomerDetails(page, request, customerDetails, insuranceDetails, kycDocumentsFileNames ,pendingXHR);
 
   // Enter policy details
   await setPolicyDetails(page, insuranceDetails, vehicleDetails, pendingXHR);
