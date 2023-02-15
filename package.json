@@ -11,10 +11,17 @@
     "pending-xhr-puppeteer": "^2.3.3",
     "puppeteer-core": "^19.6.3"
   },
+  "scripts": {
+    "lint": "eslint --ext .js ./src",
+    "pretty": "prettier --write ./src",
+    "dev": "node src/index.js"
+  },
   "devDependencies": {
     "@sparticuz/chromium": "^110.0.0",
+    "dotenv": "^16.0.3",
     "eslint": "^8.34.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.27.5"
+    "eslint-plugin-import": "^2.27.5",
+    "prettier": "^2.8.4"
   }
 }
